@@ -1,0 +1,28 @@
+.task-manager {
+  display: flex;
+  width: 60%;
+  flex-wrap: wrap;
+}
+h1 {
+  font-family: "Lato";
+  font-size: 5vmin;
+  letter-spacing: 5px;
+}
+.list {
+  flex-grow: 1;
+  margin: 5px;
+}
+.task {
+  flex-grow: 2;
+  margin: 5px;
+}
+mat-toolbar {
+  justify-content: center;
+}
+mat-card-actions {
+  margin-left: 1%;
+}
+.btn {
+  display: flex;
+  justify-content: flex-end;
+}

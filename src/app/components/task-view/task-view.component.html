@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <h1>TASK MANAGER</h1>
+</mat-toolbar>
+<div class="centered-content">
+  <div class="task-manager">
+    <div class="list">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>LISTS</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-nav-list>
+            <a mat-list-item>Test</a>
+          </mat-nav-list>
+        </mat-card-content>
+        <mat-card-actions class="btn">
+          <button mat-raised-button color="primary" (click)="openNewList()">
+            + LIST
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="task">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>TASKS</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-nav-list>
+            <a mat-list-item>Test</a>
+          </mat-nav-list>
+        </mat-card-content>
+        <mat-card-actions class="btn">
+          <button mat-raised-button color="primary" (click)="openNewTask()">
+            + TASK
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
