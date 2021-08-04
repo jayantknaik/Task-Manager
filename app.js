@@ -5,7 +5,14 @@ const { mongoose } = require("./Backend/database/mongoose");
 const { List, Task } = require("./Backend/database/models");
 mongoose.set("useFindAndModify", false);
 const port = process.env.PORT || 3000;
+const connection = mongoose.connection;
+const uri = process.env.ATLAS_URI;
 
+connection.once("open", uri =>{
+  console.log('====================================');
+  console.log("MongoDB database connections established.");
+  console.log('====================================');
+})
 //Middleware
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
