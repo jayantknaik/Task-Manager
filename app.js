@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const { mongoose } = require("./database/mongoose");
-const { List, Task } = require("./database/models");
+const { mongoose } = require("./Backend/database/mongoose");
+const { List, Task } = require("./Backend/database/models");
 mongoose.set("useFindAndModify", false);
 
 //Middleware
@@ -117,4 +117,9 @@ app.delete("/lists/:listId/tasks/:taskId", (req, res) => {
 
 app.listen(process.env.MONGODB_URI || 3000, () => {
   console.log("Server is listening on port 3000.");
+});
+app.use(express.static(__dirname + './dist/Frontend'));
+
+app.get('/', function (request, response) {
+    response.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
 });
