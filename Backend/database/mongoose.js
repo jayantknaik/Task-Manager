@@ -1,9 +1,9 @@
 // This file will handle connection logic to MongoDB database
 
 const mongoose = require("mongoose");
-const MONGODB_URI = "mongodb+srv://Jayant:jayantknaik@cluster0.f4lrn.mongodb.net/test"
+const url = "mongodb+srv://Jayant:jayantknaik@cluster0.f4lrn.mongodb.net/TaskManager"
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/TaskManager", {
+  .connect(url, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })

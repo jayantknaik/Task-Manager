@@ -115,6 +115,6 @@ app.delete("/lists/:listId/tasks/:taskId", (req, res) => {
   });
 });
 
-app.listen(process.env.port || 3000, () => {
+app.listen(process.env.MONGODB_URI || 3000, () => {
   console.log("Server is listening on port 3000.");
 });
