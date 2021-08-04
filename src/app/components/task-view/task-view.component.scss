@@ -26,3 +26,10 @@ mat-card-actions {
   display: flex;
   justify-content: flex-end;
 }
+a {
+  text-decoration: none;
+}
+.complete {
+  text-decoration: line-through;
+  opacity: 0.8;
+}

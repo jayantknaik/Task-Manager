@@ -9,12 +9,14 @@
           <mat-card-title>LISTS</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <mat-nav-list>
-            <a mat-list-item>Test</a>
-          </mat-nav-list>
+          <mat-action-list *ngFor="let list of lists">
+            <a mat-list-item [routerLink]="['/lists', list._id]">
+              {{ list.title }}
+            </a>
+          </mat-action-list>
         </mat-card-content>
         <mat-card-actions class="btn">
-          <button mat-raised-button color="primary" (click)="openNewList()">
+          <button mat-raised-button color="primary" routerLink="/new-list">
             + LIST
           </button>
         </mat-card-actions>
@@ -26,13 +28,19 @@
           <mat-card-title>TASKS</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <mat-nav-list>
-            <a mat-list-item>Test</a>
-          </mat-nav-list>
+          <mat-action-list
+            *ngFor="let task of tasks"
+            (click)="onTaskClick(task)"
+            [ngClass]="{ complete: task.complete }"
+          >
+            <button mat-list-item>
+              {{ task.title }}
+            </button>
+          </mat-action-list>
         </mat-card-content>
         <mat-card-actions class="btn">
-          <button mat-raised-button color="primary" (click)="openNewTask()">
-            + TASK
+          <button mat-mini-fab color="primary" routerLink="./new-task">
+            <mat-icon>add</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>

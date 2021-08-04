@@ -7,13 +7,19 @@
           <div class="inputField">
             <form action="">
               <mat-form-field appearance="outline">
-                <input matInput type="text" />
+                <input #inputTask matInput type="text" />
               </mat-form-field>
             </form>
           </div>
           <div class="btn">
-            <button mat-raised-button color="primary">SAVE</button>
-            <button mat-raised-button color="warn" mat-dialog-close>
+            <button
+              mat-raised-button
+              color="primary"
+              (click)="createNewTask(inputTask.value)"
+            >
+              SAVE
+            </button>
+            <button mat-raised-button color="warn" routerLink="../">
               CANCEL
             </button>
           </div>

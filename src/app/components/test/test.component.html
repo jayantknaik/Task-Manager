@@ -1,0 +1,10 @@
+<div class="navbar">
+  <h2>TESTING API INTEGRATION</h2>
+</div>
+<div class="body">
+  <div class="person" *ngFor="let data of dataD">
+    <h2>{{ data.first_name }}</h2>
+    <h3>{{ data.email }}</h3>
+    <img src="{{ data.avatar }}" />
+  </div>
+</div>

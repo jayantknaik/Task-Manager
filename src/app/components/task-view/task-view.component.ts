@@ -1,8 +1,9 @@
+import { WebRequestService } from './../../services/web-request.service';
 import { NewListComponent } from './../new-list/new-list.component';
 import { TaskService } from './../../services/task.service';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NewTaskComponent } from '../new-task/new-task.component';
+import { ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-task-view',
@@ -10,14 +11,30 @@ import { NewTaskComponent } from '../new-task/new-task.component';
   styleUrls: ['./task-view.component.scss'],
 })
 export class TaskViewComponent implements OnInit {
-  constructor(private taskService: TaskService, public dialog: MatDialog) {}
+  constructor(
+    private taskService: TaskService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+  lists: any[] = [];
+  tasks: any[] = [];
+  ngOnInit(): void {
+    //GET LISTS
+    this.taskService.getLists().subscribe((res: any) => {
+      this.lists = res;
+    });
 
-  openNewList() {
-    const dialogRef = this.dialog.open(NewListComponent);
+    //GET TASKS
+    this.route.params.subscribe((params: Params) => {
+      this.taskService.getTasks(params.listId).subscribe((res: any) => {
+        this.tasks = res;
+      });
+    });
   }
-  openNewTask() {
-    const dialogRef = this.dialog.open(NewTaskComponent);
+  onTaskClick(task: any) {
+    return this.taskService.complete(task).subscribe(() => {
+      console.log('Task completed!');
+      task.complete = !task.complete;
+    });
   }
 }

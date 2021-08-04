@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TaskViewComponent } from './components/task-view/task-view.component';
 
 import { MatCardModule } from '@angular/material/card';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
@@ -15,6 +16,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { NewListComponent } from './components/new-list/new-list.component';
 import { NewTaskComponent } from './components/new-task/new-task.component';
+import { TestComponent } from './components/test/test.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
     TaskViewComponent,
     NewListComponent,
     NewTaskComponent,
+    TestComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +39,7 @@ import { NewTaskComponent } from './components/new-task/new-task.component';
     MatToolbarModule,
     MatInputModule,
     MatDialogModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
