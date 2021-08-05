@@ -1,15 +1,12 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 const { mongoose } = require("./Backend/database/mongoose");
 const { List, Task } = require("./Backend/database/models");
 mongoose.set("useFindAndModify", false);
 const port = process.env.PORT || 3000;
-const connection = mongoose.connection;
-const uri = process.env.ATLAS_URI;
 
 //Middleware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200"); // update to match the domain you will make the request from
   res.header(
@@ -121,8 +118,8 @@ app.delete("/lists/:listId/tasks/:taskId", (req, res) => {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}.`);
 });
-app.use(express.static(__dirname + './dist/Frontend'));
+app.use(express.static(__dirname + '/dist/Frontend'));
 
-app.get('/', function (request, response) {
+app.get('*', function (request, response) {
     response.sendFile(path.join(__dirname + '/dist/Frontend/index.html'));
 });
