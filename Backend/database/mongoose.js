@@ -5,7 +5,6 @@ mongoose
   .connect(connection, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true,
   })
   .then(() => {
     console.log("Connected to MongoDB successfully.");
@@ -14,7 +13,8 @@ mongoose
     console.log("Error while connecting to MongoDB.");
     console.log(e);
   });
-
+mongoose.set("useCreateIndex", true);
+mongoose.set("useFindAndModify", false);
 module.exports = {
   mongoose,
 };
