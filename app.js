@@ -3,7 +3,7 @@ const app = express();
 const { mongoose } = require("./Backend/database/mongoose");
 const { List, Task } = require("./Backend/database/models");
 mongoose.set("useFindAndModify", false);
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 //Middleware
 app.use(express.json());
